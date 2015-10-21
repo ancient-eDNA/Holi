@@ -36,7 +36,7 @@ for file in os.listdir(os.path.join(datadir,"unpaired_controls")):
     outdir = os.path.join(workdir,"unpaired_controls",os.path.splitext(os.path.splitext(file)[0])[0])
     args1 = ["rqcfilter.sh", "in=" + os.path.join(datadir,"unpaired_controls",file), \
     "path=" + outdir, "trimfragadapter=t", "qtrim=r","trimq=0", "maxns=3", "maq=3", "minlen=25", "mlf=0.0", \
-    "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=5","barcodefilter=f"]
+    "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=0","barcodefilter=f"]
     p1 = subprocess.Popen(args1,stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     out, err = p1.communicate()
     log.write(out)
@@ -53,7 +53,7 @@ for file in os.listdir(os.path.join(datadir,"paired_controls")):
         "in2=" + os.path.join(datadir,"paired_controls",file2), \
         "path=" + outdir, \
         "trimfragadapter=t", "qtrim=r","trimq=0", "maxns=3", "maq=3", "minlen=25", "mlf=0.0", \
-        "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=5","barcodefilter=f"]
+        "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=0","barcodefilter=f"]
         p1 = subprocess.Popen(args1,stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         out, err = p1.communicate()
         log.write(out)
@@ -96,7 +96,7 @@ for file in os.listdir(os.path.join(datadir,"unpaired_samples")):
     outdir = os.path.join(workdir,"unpaired_samples",os.path.splitext(os.path.splitext(file)[0])[0])
     args1 = ["rqcfilter.sh", "in=" + os.path.join(datadir,"unpaired_samples",file), \
     "path=" + outdir, "trimfragadapter=t", "qtrim=r","trimq=0", "maxns=3", "maq=3", "minlen=25", "mlf=0.0", \
-    "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=5", \
+    "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=0", \
     "barcodefilter=f", "ref="+ os.path.join(workdir,"contaminants.fa"), "filterhdist=0" ]
     p1 = subprocess.Popen(args1,stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     out, err = p1.communicate()
@@ -115,7 +115,7 @@ for file in os.listdir(os.path.join(datadir,"paired_samples")):
         "in2=" + os.path.join(datadir,"paired_samples",file2), \
         "path=" + outdir, \
         "trimfragadapter=t", "qtrim=r","trimq=0", "maxns=3", "maq=3", "minlen=25", "mlf=0.0", \
-        "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=5", \
+        "removehuman=f", "removedog=f", "removecat=f", "phix=t", "filterk=25", "forcetrimmod=0", \
         "barcodefilter=f", "ref="+ os.path.join(workdir,"contaminants.fa"), "filterhdist=0" ]
         p1 = subprocess.Popen(args1,stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         out, err = p1.communicate()
