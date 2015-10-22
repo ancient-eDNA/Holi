@@ -7,8 +7,8 @@ module load bbtools
 module load jgibio
 
 $HOME/dev/copenhagen_moat/bin/cleanall.py \
---workdir $BSCRATCH/copenhagen/clean20151019-2 \
+--workdir $BSCRATCH/copenhagen/clean20151022 \
 --datadir $BSCRATCH/copenhagen/raw \
---logfile $BSCRATCH/copenhagen/clean20151019-2/process.log
+--logfile $BSCRATCH/copenhagen/clean20151022/process.log
 
 
