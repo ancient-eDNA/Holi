@@ -60,7 +60,7 @@ for file in os.listdir(os.path.join(datadir,"paired_controls")):
         log.write(err)      
         args2 = ["bbmerge.sh", "in=" + os.path.join(outdir,os.path.splitext(os.path.splitext(file)[0])[0] + ".anqdpt.fq.gz" ),\
         "out=" + os.path.join(outdir,os.path.splitext(os.path.splitext(file)[0])[0] + ".mergedandunmerged.fq.gz"),\
-        "mix=t","usejni=t"]
+        "mix=t","usejni=t","mininsert=25", "mininsert0=15"]
         p2 = subprocess.Popen(args2,stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         out, err = p2.communicate()
         log.write(out)
@@ -123,7 +123,7 @@ for file in os.listdir(os.path.join(datadir,"paired_samples")):
         log.write(err)      
         args2 = ["bbmerge.sh", "in=" + os.path.join(outdir,os.path.splitext(os.path.splitext(file)[0])[0] + ".anqdpt.fq.gz" ),\
         "out=" + os.path.join(outdir,os.path.splitext(os.path.splitext(file)[0])[0] + ".all.fq.gz"),\
-        "mix=t","usejni=t"]
+        "mix=t","usejni=t", "mininsert=25"]
         p2 = subprocess.Popen(args2,stderr=subprocess.PIPE, stdout=subprocess.PIPE)
         out, err = p2.communicate()
         log.write(out)
