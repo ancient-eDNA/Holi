@@ -48,26 +48,28 @@ if [ "$findcandidates" = "True" ]; then
 	done
 fi
 
-## use bbmap to find reads that map to one of ~200 Vibrio cholera genomes with > 95% \
+## use bbmap to find reads that map to one of ~650 Vibrio genus genomes with > 95% \
 	# identity. Reads are mapped all bast-matching reference configs
 if [ "$map" = "True" ]; then
-	mkdir -p "$wd"/mapping/vibrio_cholerae_map
-	mkdir -p "$wd"/mapping/vibrio_cholerae_map/hist
-	mkdir -p "$wd"/mapping/vibrio_cholerae_map/sam
-	mkdir -p "$wd"/mapping/vibrio_cholerae_map/scafstats
-	echo "Indexing Vibrio cholerae genomes"
-	bbmap.sh ref="$wd"/mapping/Vcholerae.fna \
+	mkdir -p "$wd"/mapping/vibrio_genus_map
+	mkdir -p "$wd"/mapping/vibrio_genus_map/hist
+	mkdir -p "$wd"/mapping/vibrio_genus_map/sam
+	mkdir -p "$wd"/mapping/vibrio_genus_map/scafstats
+	echo "Indexing Vibrio genomes"
+	bbmap.sh ref="$wd"/mapping/Vibrio.fna \
+		build=2 \
 		pigz=t \
 		unpigz=t \
 		usejni=t \
 		
-	for g in "$wd"/mapping/vibrio_candidate_reads/*fa.gz
+	for g in "$wd"/mapping/vibrio_candidate_reads/*.fa.gz
 	do
 		echo "Running bbmap.sh on file $g"
 		bname=`basename $g .fa.gz`
 		bbmap.sh in="$g" \
-		scafstats=$"$wd"/mapping/vibrio_cholerae_map/scafstats/"$bname".txt \
+		scafstats=$"$wd"/mapping/vibrio_genus_map/scafstats/"$bname".txt \
 		interleaved=false \
+		build=2 \
 		minid=0.95 \
 		ambiguous=all \
 		secondarycov=t \
@@ -75,8 +77,8 @@ if [ "$map" = "True" ]; then
 		pigz=t \
 		unpigz=t \
 		usejni=t \
-		out="$wd"/mapping/vibrio_cholerae_map/sam/"$bname".sam
-		idhist="$wd"/mapping/vibrio_cholerae_map/hist/"$bname".txt
+		out="$wd"/mapping/vibrio_genus_map/sam/"$bname".sam
+		idhist="$wd"/mapping/vibrio_genus_map/hist/"$bname".txt
 		 
 	done
 fi

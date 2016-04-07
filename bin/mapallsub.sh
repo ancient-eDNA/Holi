@@ -7,5 +7,5 @@ module load bbtools
 module load pigz
 . reftree.env.sh
 
-$HOME/dev/copenhagen_moat/bin/mapall.sh /global/projectb/scratch/arrivers/copenhagen/clean20151025 /global/projectb/scratch/arrivers/copenhagen/clean20151025/samplesfinal
+$HOME/dev/copenhagen_moat/bin/mapall2.sh /global/projectb/scratch/arrivers/copenhagen/clean20151025 /global/projectb/scratch/arrivers/copenhagen/clean20151025/samplesfinal
 
