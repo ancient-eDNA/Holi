@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ###### Holi ############
 
 #Dependencies this pipeline has been setup in a Unix environment and have not been tested on other operating systems (it expects basic utilities such as sort, bzip2 and like)
