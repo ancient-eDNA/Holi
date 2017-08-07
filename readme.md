@@ -1,8 +1,3 @@
-# This repository has been merged with another repoitory:
-https://github.com/ancient-eDNA/Holi
-
-Please use that repository instead.
-
 # Scripts to process sequencing data in the paper:
 Pedersen, M.W., et al. 2017. Tracing past ambient air pollution and its consequences on human health. Submitted 7/31/2017.
 
